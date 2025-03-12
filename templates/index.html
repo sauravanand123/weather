@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Weather Dashboard</h1>
+    
+    <form method="POST">
+        <input type="text" name="city" placeholder="Enter city name" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    <div id="weather-data">
+        {% if weather %}
+            <p><strong>City:</strong> {{ weather.city }}</p>
+            <p><strong>Temperature:</strong> {{ weather.temperature }}°C</p>
+            <p><strong>Description:</strong> {{ weather.description }}</p>
+            <p><strong>Humidity:</strong> {{ weather.humidity }}%</p>
+            <p style="color: chartreuse;">developed by Saurav Anand</p>
+        {% elif error %}
+            <p>{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
